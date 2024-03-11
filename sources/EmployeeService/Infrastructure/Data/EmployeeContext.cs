@@ -5,11 +5,10 @@ namespace Infrastructure.Data
 {
     public class EmployeeContext : DbContext
     {
-        private readonly EmployeeContext _context;
 
-        public EmployeeContext(EmployeeContext context)
+        public EmployeeContext(DbContextOptions<EmployeeContext> options) : base(options)
         {
-            _context = context;
+
         }
         public DbSet<Employee> Employee { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
